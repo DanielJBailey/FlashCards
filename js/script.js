@@ -37,6 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         </div> 
         `;
+        //FlIP CARD OVER
+        let card = document.querySelector('.card');
+        card.addEventListener('click', function() {
+            card.classList.toggle('is-flipped');
+        })
     });
 
     // MAKE NEW CARD ON FORM SUBMIT
@@ -56,6 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
         //console.log(cardArray);
         displayCards();
     });
+
+    
 
     // ADD ARROW FUNCTIONS
     let leftArrow = document.querySelector('.left-arrow');
@@ -77,11 +84,36 @@ document.addEventListener('DOMContentLoaded', () => {
             `<div class = "card">
                 <div class="card-face card-face-front">
                     <h3>${currentCard.front}</h3>
+                    <i class="fas fa-edit edit-card"></i>
                 </div>
                 <div class="card-face card-face-back">
                     <h3>${currentCard.back}</h3>
                 </div>
             </div>`
+
+        //EDIT CARD
+        var current_card = cardArray[currentIndex];
+        let editButton = document.querySelector('.edit-card');
+        editButton.addEventListener('click', function() {
+            cardContainer.innerHTML = `
+            <form>
+                <div class = "card">
+                    <div class="card-face card-face-front">
+                        <textarea value="${current_card.front}" autofocus></textarea>
+                    </div>
+                    <div class="card-face card-face-back">
+                        <textarea id="back-card-input" value="${current_card.back}"></textarea>
+                    </div>
+                </div>
+                <input type="submit" id="submit-new-card-form"/>
+            </form>
+            `
+            //FlIP CARD OVER
+            let card = document.querySelector('.card');
+            card.addEventListener('click', function() {
+                card.classList.toggle('is-flipped');
+            })
+        });
 
         //FlIP CARD OVER
         let card = document.querySelector('.card');

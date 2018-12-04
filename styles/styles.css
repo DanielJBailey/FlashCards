@@ -71,6 +71,19 @@ body .card .card-face-front {
   padding: 1em;
 }
 
+body .card .card-face-front .edit-card {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: rgba(0, 0, 0, 0.2);
+  font-size: 18px;
+  margin: 1em;
+}
+
+body .card .card-face-front .edit-card:hover {
+  color: rgba(0, 0, 0, 0.7);
+}
+
 body .card .card-face-back {
   background: lightgray;
   -webkit-transform: rotateY(180deg);
